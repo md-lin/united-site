@@ -6,6 +6,6 @@ This website aims to provide a database for members of the United Barbell Weight
 - accounts are password protected
 
 # TODO
-- create an ER diagram to model the database
+- build a relational model based on the ER diagram
 - build a basic site for one person to store their records
 - add login functionality
