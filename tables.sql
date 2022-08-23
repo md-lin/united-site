@@ -14,8 +14,10 @@ CREATE TABLE Exercise
 CREATE TABLE Record
 (
     Username VARCHAR(30),
-    Kg INTEGER,
+    Kg FLOAT,
     Reps INTEGER,
+    RecordDate Date,
+    RecordBodyweight FLOAT,
     ExerciseName VARCHAR(20),
     ExerciseVariation VARCHAR(30),
     PRIMARY KEY (Username, Reps, ExerciseName, ExerciseVariation),
