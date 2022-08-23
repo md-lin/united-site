@@ -1,13 +1,14 @@
-CREATE TABLE User
+CREATE TABLE UnitedUser
 (
     Username VARCHAR(30) PRIMARY KEY,
     Passcode VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE Coach
+CREATE TABLE Exercise
 (
-    Username VARCHAR(30) PRIMARY KEY,
-    Passcode VARCHAR(30) NOT NULL
+    ExerciseName VARCHAR(20),
+    ExerciseVariation VARCHAR(30),
+    PRIMARY KEY (ExerciseName, ExerciseVariation)
 );
 
 CREATE TABLE Record
@@ -17,15 +18,7 @@ CREATE TABLE Record
     Reps INTEGER,
     ExerciseName VARCHAR(20),
     ExerciseVariation VARCHAR(30),
-    PRIMARY KEY (Username, Reps, ExerciseName, ExerciseVariation)
-    FOREIGN KEY Username REFERENCES User ON DELETE CASCADE
-    FOREIGN KEY ExerciseName REFERENCES Exercise ON DELETE CASCADE
-    FOREIGN KEY ExerciseVariation REFERENCES Exercise ON DELETE CASCADE
-);
-
-CREATE TABLE Exercise
-(
-    ExerciseName VARCHAR(20),
-    ExerciseVariation VARCHAR(30),
-    PRIMARY KEY (ExerciseName, ExerciseVariation)
+    PRIMARY KEY (Username, Reps, ExerciseName, ExerciseVariation),
+    FOREIGN KEY (Username) REFERENCES UnitedUser ON DELETE CASCADE,
+    FOREIGN KEY (ExerciseName, ExerciseVariation) REFERENCES Exercise ON DELETE CASCADE
 );
